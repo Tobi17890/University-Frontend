@@ -1,0 +1,51 @@
+<section class="featured-section">
+  <div class="container-fluid">
+    <div class="container pt-5 wid">
+      <form class="d-flex" [formGroup]="form">
+        <input class="form-control" formControlName="search" type="search"  placeholder="Search major..." >
+      </form>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center mt-5">
+        <h2 class="text-white"> {{lang.strings['Logo']}} </h2>
+        <h2 class="text-white">Welcome to University of Cambodia</h2>
+        <p class="text-white">
+          This is a website that display all of the info in every single university that is located in Cambodia.
+          Have a nice days guys!
+        </p>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <ng-container *ngFor=" let featuredPost of featuredPostArrayOne">
+        <div class="col-lg-3"
+          [routerLink]="['/post', featuredPost.id]">
+          <app-post-card [postDataOne]="featuredPost"></app-post-card>
+        </div>
+      </ng-container>
+      <div class="row">
+        <button class="btn btn-theme mt-2" (click)="listAll()">
+          See more
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- <section class="container mt-5">
+  <div class="col-md-12 text-center">
+    <h2>Latest post</h2>
+    <p>Lorem ipsum dolor sit amet consectetur.</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mt-3" *ngFor=" let last of latestPost" [routerLink]="['/post', last.id]">
+      <app-post-card [postDataOne]="last"></app-post-card>
+    </div>
+  </div>
+</section> -->

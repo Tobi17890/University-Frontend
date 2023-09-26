@@ -1,0 +1,27 @@
+<div class="bg-theme p-5">
+    <div class="container">
+        <h2 class="text-white"> {{id?.category}}</h2>
+        <!-- <p>Hello</p> -->
+        <p class="text-white">These are University that located in  {{id?.category}}</p>
+    </div>
+
+</div>
+
+<div class="container mt-5">
+    
+
+        <ng-container >
+          <div class="row"   >
+          
+              
+                <div class="col-md-3 mt-3" *ngFor=" let data of postDataOne">
+                  <app-post-card [postDataOne]="data" [routerLink]="['/post', data.id]"></app-post-card>
+                </div>
+              
+          
+            <!-- <img [src]="data.data" alt=""> -->
+          </div>
+        </ng-container>
+       
+    
+</div>

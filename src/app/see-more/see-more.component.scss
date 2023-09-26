@@ -1,0 +1,41 @@
+.featured-section {
+  padding-left: 130px;
+  padding-right: 130px;
+  padding-bottom: 130px;
+  background-color: var(--primary-color);
+
+  .card {
+    max-width: 400px;
+    min-height: 500px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+}
+
+.contax {  
+  overflow: hidden;
+  z-index: 1
+}
+
+img {
+  width: 100%;
+  aspect-ratio: 6/4;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+img:hover {
+
+  transform: scale(1.1);
+  position: relative;
+
+
+
+}
+
+.ml-3 {
+  margin-left: 10px;
+}
+
+.wid {
+  width: 500px;
+}

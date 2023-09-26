@@ -1,0 +1,24 @@
+<div class="card shadow-effect mb-2" *ngIf="postDataOne">
+  <div class="contax">
+    
+    <img
+      [src]=" postDataOne.data.postImgPath"
+      alt="post-image"
+      class="card-img-top"
+      loading="lazy"
+    >
+  </div>
+  <div class="card-body">
+    <small class="bg-light text-danger text-center"> {{postDataOne.data.category.category}}</small>
+    <small class="bg-light text-success text-center ml-3" *ngIf="postDataOne.data.isFeatured">Featured</small>
+    <small class="bg-light text-info text-center ml-3">Views - {{postDataOne.data.views}} </small>
+
+    <h5 class="mt-1"> {{postDataOne.data.title}}</h5> 
+    <p> {{postDataOne.data.excerpt}}</p>
+
+    <small class="bg-light text-warning text-center ml-3"> LAST UPDATED - {{postDataOne.data.createAt.toMillis() | date}} </small>
+
+  </div>
+</div>
+
+

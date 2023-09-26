@@ -1,0 +1,71 @@
+<section class="featured-section">
+  <div class="container-fluid">
+
+    
+    <!-- llllllllllllllllllllllllllllllllll -->
+    
+    <!-- <app-search (searchValueChange)="onSearchTextEnter($event)"></app-search> -->
+
+    <div class="container pt-5 wid">
+      <form class="d-flex " >
+        <input class="form-control " type="search" name="search" placeholder="Search" [(ngModel)]="searchValue" (keyup)="onSearchChange(searchValue)">
+      </form>
+    </div>
+  
+  <!-- llllllllllllllllllllllllllllllllll -->
+    <div class="row">
+      <div class="col-md-12 text-center mt-5">
+        <h2 class="text-white">School</h2>
+        <p class="text-white">
+          This is the only website that display all of the info in every single
+          University that is located in Cambodai. Have a nice days guys!
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <ng-container *ngFor="let datas of latestPost">
+        <div
+        class="col-lg-3"
+        
+        [routerLink]="['/post', datas.id]"
+        *ngIf="searchValue === '' || datas.data.category.category.includes(searchValue)"
+      >
+        <div class="card shadow-effect mb-2" >
+          <!-- *ngIf="postDataOne" 
+                *ngIf="searchText === '' || datas.datatitle.toLowerCase().includes(searchText)"
+          -->
+          <div class="contax">
+            <img
+              [src]="datas.data.postImgPath"
+              alt="post-image"
+              class="card-img-top"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-body">
+            <small class="bg-light text-danger text-center">
+              {{ datas.data.category.category }}</small
+            >
+            <small
+              class="bg-light text-success text-center ml-3"
+              *ngIf="datas.data.isFeatured"
+              >Featured</small
+            >
+            <small class="bg-light text-info text-center ml-3"
+              >Views - {{ datas.data.views }}
+            </small>
+
+            <h5 class="mt-1">{{ datas.data.title }}</h5>
+            <p>{{ datas.data.excerpt }}</p>
+
+            <small class="bg-light text-warning text-center ml-3">
+              LAST UPDATED - {{ datas.data.createAt.toMillis() | date }}
+            </small>
+          </div>
+        </div>
+      </div>
+      </ng-container>
+
+    </div>
+  </div>
+</section>

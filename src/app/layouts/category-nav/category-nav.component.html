@@ -1,0 +1,71 @@
+<!-- <nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <div class="collapse navbar-collapse justify-content-center">
+      <ul class="navbar-nav" *ngFor="let pp of PhnomPenh">
+        <li class="nav-item ml-5">
+          <a
+            class="nav-link"
+            [routerLink]="['/category', pp.data.category, pp.id]"
+            >{{ pp.data.category }}</a
+          >
+        </li>
+      </ul>
+      <select class="nav-link" >
+        <option>Province</option>
+        <ng-template *ngFor="let province of Provinces">
+            <a [routerLink]="['/category', province.data.category, province.id]">{{province.data.category}}</a>
+        </ng-template> -->
+        <!-- <option *ngFor="let la of Provinces" [value]="la.id" [routerLink]=" ['/category', '{{la.data.category}}', la.id ]">
+          {{ la.data.category }}
+        </option> -->
+        <!-- <option
+          class="nav-link"
+          value="{{ la.data.category }}-{{ la.data.id }} "
+          *ngFor="let la of Provinces"
+          [routerLink]="['/category', la.data?.category, la.id]"
+        >
+          {{ la.data.category }}
+        </option> -->
+      <!-- </select>
+    </div>
+  </div>
+</nav> -->
+
+<!-- <select class="nav-link">
+    <option value="" selected disabled class="nav-link">
+      Province
+    </option>
+    <option
+      class="nav-link"
+      value="{{ la.data.category }}-{{ la.data.id }} "
+      *ngFor="let la of Provinces"
+      [routerLink]="['/category', la.data?.category, la.id]"
+    >
+      <a
+        class="nav-link"
+        
+      >
+        {{ la.data.category }}
+      </a>
+    </option>
+  </select> -->
+
+<!-- <ul class="navbar-nav">
+        <li class="nav-item ml-5" >
+            <a class="nav-link"  *ngFor="let province of Provinces" [routerLink]="['/category', province.data?.category, province.id ]">{{province.date.category}}</a>
+          </li>
+      </ul> -->
+
+      
+
+<nav role="navigation" class="primary-navigation">
+  <ul>
+    <li *ngFor="let pp of PhnomPenh"><a [routerLink]="['/category', pp.data.category, pp.id]">{{pp.data.category}}</a></li>
+    <li>
+      <a > {{IdTitle.category}}</a>
+      <ul class="dropdown">
+        <li *ngFor="let province of Provinces"><a [routerLink]="['/category', province.data.category, province.id]">{{province.data.category}}</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>

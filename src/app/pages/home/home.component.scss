@@ -1,0 +1,35 @@
+.featured-section {
+  padding-left: 130px;
+  padding-right: 130px;
+  padding-bottom: 130px;
+  background-color: var(--primary-color);
+}
+
+.ml-3 {
+  margin-left: 10px;
+}
+
+.btn {
+  margin-left: 47.3% !important;
+  background: var(--secondary-color) !important;
+  width: 100px !important;
+  color: var(--primary-color) !important;
+}
+.wid {
+  width: 500px;
+}
+.container-fluid {
+  position: relative;
+  z-index: 0;
+}
+
+// .container {
+//     background-color: aquamarine;
+// }
+
+// .container {
+//     // display: flex !important;
+//     // flex-direction: row !important;
+//     width: 100%;
+//     background-color: aqua;
+// }

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="card">
+        <img src="{{data?.postImgPath}}" alt="dog-image" class="card-img-top bimg-fluid" />
+        <div class="card-body">
+          <small class="bg-light text-danger text-center"> {{data?.category.category}}</small>
+          <small class="bg-light text-sucess text-center ml-2" *ngIf="data?.isFeatured">Featured</small>
+          <small class="bg-light text-info text-center ml-2">Views - {{data?.views}}</small>
+          <small class="bg-light text-warning text-center ml-2">LAST UPDATED - {{data?.createAt.toMillis() | date
+            }}</small>
+          <h1 class="mt-3 mb-3"> {{data?.title}}</h1>
+          <p [innerHTML]="data?.content"></p>
+        </div>
+      </div>
+      <app-comment-form></app-comment-form>
+      <app-comment-list></app-comment-list>
+    </div>
+    <div class="col-md-3">
+
+
+      <div *ngFor="let similarPost of similar">
+        <app-post-card [postDataOne]="similarPost" [routerLink]="['/post', similarPost.id]"></app-post-card>
+      </div>
+
+    </div>
+  </div>
+</div>

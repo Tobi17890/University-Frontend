@@ -1,0 +1,23 @@
+.card {
+  max-width: 400px;
+  min-height: 500px !important;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  
+}
+.ml-3 {
+  margin-left: 10px;
+}
+.contax {  
+  overflow: hidden;
+  z-index: 1
+}
+img {
+  aspect-ratio: 6/4;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+img:hover {
+  transform: scale(1.1);
+  position: relative;
+}
+
