@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CategoriesService } from 'src/app/services/categories.service';
 
@@ -9,6 +9,8 @@ import { CategoriesService } from 'src/app/services/categories.service';
 })
 export class CategoryNavComponent implements OnInit{
 
+  @Input() name!: string;
+
   catagoryArray: any[] = [];
   PhnomPenh: any[] = [];
   Provinces: any[] = [];
@@ -18,7 +20,7 @@ export class CategoryNavComponent implements OnInit{
   
   
 
-  constructor (private cateSev: CategoriesService, private route : ActivatedRoute) {
+  constructor (private cateSev: CategoriesService, private route : ActivatedRoute, private ps: CategoriesService) {
     this.cateSev.loadPhnomPenh().subscribe(val => {
       this.PhnomPenh = val;
       console.log(this.PhnomPenh, "PhnomPenh");
@@ -29,18 +31,16 @@ export class CategoryNavComponent implements OnInit{
       this.Provinces = val;
       console.log(this.Provinces, "Provinces");
     });
-
-    // this.route.params.subscribe(val => {
-    //   if (val) {
-    //     this.IdTitle = val;
-    //   }
-      
-    // });
+    this.ps.currentName.subscribe(name => this.name = name);
   }
 
 
   ngOnInit(): void {
+     
+  }
 
+  nameClicked(data: any) {
+    this.ps.changeName(data.data.name);
   }
 
 

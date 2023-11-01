@@ -1,12 +1,15 @@
 import { Injectable, OnInit } from '@angular/core';
 // import { AngularFirestore } from '@angular/fire/compat/firestore';/
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoriesService implements OnInit {
+  private nameSource = new BehaviorSubject<string>('');
+  currentName = this.nameSource.asObservable();
   constructor(private afs: AngularFirestore) {}
 
   ngOnInit(): void {}
@@ -40,5 +43,10 @@ export class CategoriesService implements OnInit {
         })
       );
   }
-  
+  // -------------
+
+  changeName(name: string) {
+    this.nameSource.next(name);
+  }
+  // ------------
 }
